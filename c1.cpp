@@ -208,7 +208,7 @@ int main() {
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     
-    GLFWwindow* window = glfwCreateWindow(1024, 768, "Live Map Viewer with Saved Locations", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(1024, 768, "map visualizer for car", NULL, NULL);
     if (!window) return 1;
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);
