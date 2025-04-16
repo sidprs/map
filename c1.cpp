@@ -1,3 +1,16 @@
+/*
+ 
+Author  : Sid Prasad
+Purpose : Create navigation system to pair with traffic recognition 
+          scripts in order to create finite state machine diagrams.
+          End goal is to create a embedded autonomous navigation system.
+          
+TODO    : Fix render of map
+        : Fix latency issues
+        : Implement directions (GPS Module)
+        : Integrate sensor information using imgui
+*/
+
 #include <curl/curl.h>
 #include <cstdio>
 #include <cstdlib>
@@ -5,25 +18,29 @@
 #include <cmath>
 #include <vector>
 #include <string>
-
-// GLFW and OpenGL headers.
 #include <GLFW/glfw3.h>
-
-// ImGui headers and backends.
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
 
-// stb_image for downloading and decoding PNG tiles.
+// stb_image for download and decoding PNG tiles of the map
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-// ----------------------------------------------------------------
+// ===============================================================
 // Structures and callback for downloading data via libcurl.
+// ===============================================================
+
 struct MemoryStruct {
-    char* memory;
-    size_t size;
+    char* memory;               // char* to store byte
+    size_t size;                // size of data 
 };
+
+
+
+// ===============================================================
+//  WriteMemoryCallback  
+// ===============================================================
 
 static size_t WriteMemoryCallback(void* contents, size_t size, size_t nmemb, void* userp) {
     size_t realSize = size * nmemb;
@@ -132,6 +149,14 @@ std::vector<unsigned char> CompositeMap(int finalWidth, int finalHeight,
             int tileX = startTileX + tx;
             int tileY = startTileY + ty;
             // Use default OSM tile server (light mode).
+
+            /*
+
+            
+
+               
+            */
+
             snprintf(url, sizeof(url), "https://tile.openstreetmap.org/%d/%d/%d.png", zoom, tileX, tileY);
             int w, h;
             unsigned char* img = LoadTileImage(url, &w, &h);
@@ -248,6 +273,8 @@ int main() {
         {"New York, NY", 40.7128, -74.0060},
         {"San Francisco, CA", 37.7749, -122.4194},
         {"London, UK", 51.5074, -0.1278}
+        {"Chandler, AZ", " ", " "}
+        {"Villas On Apach", "  ",  " " }
     };
     
     // Main loop.
