@@ -1,5 +1,5 @@
  
-## Embedded Autonomous Navigation Map for the RasberryPi
+## Embedded Autonomous Navigation Map 
 
 - Map powered by GPS module / LiDAR modules that will give traffic decisions. (in progress) 
 - Utilizing imgui framework for creating new destinations / step routes.
