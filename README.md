@@ -8,4 +8,4 @@
 
 
 
-![pic]([https://github.com/user-attachments/assets/b30964d9-e47f-45e4-9eca-df8613e91b3e](https://github.com/sidprs/map/blob/main/pic.png))
+<img width="1069" alt="pic" src="https://github.com/user-attachments/assets/1496d4cb-8fa3-4f71-bf65-c37e93f3a3dd" />
