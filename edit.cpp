@@ -231,8 +231,8 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init(glsl_version);
 
-    const int finalWidth = 600;
-    const int finalHeight = 400;
+    const int finalWidth = 1000;
+    const int finalHeight = 1000;
     int zoom = 16;
     int tileSize = 256;
     double mapCenterLat = 33.4251;
@@ -312,6 +312,39 @@ int main() {
             mapTexture = CreateTextureFromImage(composite, finalWidth, finalHeight);
         }
         ImGui::End();
+
+        static bool ScrollX;
+
+    if(ImGui::Begin("Test Window")){
+        ImGui::Checkbox("ScrollX", &ScrollX);
+
+        for (int it = 0; it < 4; it++){
+            ImGui::PushID(it);
+
+            if(ImGui::BeginTable("test", 2, ScrollX ? ImGuiTableFlags_ScrollX : 0)) {
+                ImGui::TableSetupColumn("delete", ImGuiTableColumnFlags_WidthFixed);
+                ImGui::TableSetupColumn("name", ImGuiTableColumnFlags_WidthFixed);
+                ImGui::TableHeadersRow();
+
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0); ImGui::Text("0");
+                ImGui::TableSetColumnIndex(1); ImGui::Text("1");
+
+                ImGui::TableNextRow();
+                ImGui::TableSetColumnIndex(0); ImGui::Text("0");
+                ImGui::TableSetColumnIndex(1); ImGui::Text("1");
+
+                ImGui::EndTable();
+              }
+
+              ImGui::PopID();
+          }
+      }
+
+      ImGui::End();
+    
+
+
 
         // --- Saved Locations ---
         ImGui::Begin("Saved Locations");
