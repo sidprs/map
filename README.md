@@ -4,7 +4,6 @@
 - Map powered by GPS module / LiDAR modules that will give traffic decisions. (in progress) 
 - Utilizing imgui framework for creating new destinations / step routes.
 - Creating new visual diagram of a finite state diagram to show the state of the device while on route.
-    - DFA will describe the state of the device 
 
 
 
